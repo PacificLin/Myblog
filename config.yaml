@@ -56,9 +56,9 @@ params:
             label:
 
         remark42:
-            host:
-            site:
-            locale:
+            host: https://mydatamafia.com/
+            site: datamafia
+            locale: 
 
     widgets:
         enabled:
