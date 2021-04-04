@@ -14,6 +14,13 @@ googleAnalytics:
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, es, de
 DefaultContentLanguage: en
 
+
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+
+
 permalinks:
     post: /p/:slug/
     page: /:slug/
