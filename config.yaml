@@ -13,7 +13,6 @@ googleAnalytics:
 # Theme i18n support
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, es, de
 DefaultContentLanguage: en
-
 permalinks:
     post: /p/:slug/
     page: /:slug/
@@ -48,7 +47,7 @@ params:
 
     comments:
         enabled: true
-        provider: remark
+        provider: disqus
         
         utterances:
             repo: 
@@ -56,8 +55,8 @@ params:
             label:
 
         remark42:
-            host: https://mydatamafia.com/
-            site: datamafia
+            host: 
+            site: 
             locale: 
 
     widgets:
@@ -124,3 +123,4 @@ related:
 markup:
     highlight:
         noClasses: false
+disqusShortname: huanping
