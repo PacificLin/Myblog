@@ -13,6 +13,7 @@ googleAnalytics:
 # Theme i18n support
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, es, de
 DefaultContentLanguage: en
+
 permalinks:
     post: /p/:slug/
     page: /:slug/
@@ -55,9 +56,9 @@ params:
             label:
 
         remark42:
-            host: 
-            site: 
-            locale: 
+            host:
+            site:
+            locale:
 
     widgets:
         enabled:
