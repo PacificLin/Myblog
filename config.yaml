@@ -47,11 +47,11 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: true
-        provider: utterances
+        enabled: false
+        provider: 
         
         utterances:
-            repo: PacificLin/myBlog
+            repo: 
             issueTerm: pathname
             label:
 
