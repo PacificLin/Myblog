@@ -49,9 +49,7 @@ params:
     comments:
         enabled: true
         provider: disqus
-        
-        disqus:
-            disqusShortname: mydatamafia
+        disqusShortname: mydatamafia
         
         utterances:
             repo: PacificLin/myBlog
