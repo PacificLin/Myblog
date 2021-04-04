@@ -48,8 +48,7 @@ params:
 
     comments:
         enabled: true
-        provider: disqus
-        disqusShortname: mydatamafia
+        provider: remark42
         
         utterances:
             repo: 
