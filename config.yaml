@@ -51,7 +51,7 @@ params:
         provider: utterances
         
         utterances:
-            repo:
+            repo: PacificLin/myBlog
             issueTerm: pathname
             label:
 
