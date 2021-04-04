@@ -2,7 +2,7 @@ baseurl: https://mydatamafia.com
 languageCode: en-us
 theme: "hugo-theme-stack"
 paginate: 5
-title: DATA GANG
+title: DATA GANG BLOG
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
@@ -49,9 +49,7 @@ params:
     comments:
         enabled: true
         provider: disqus
-        
-        disqus:
-            disqusShortname: mydatamafia
+        disqusShortname: mydatamafia
         
         utterances:
             repo: 
