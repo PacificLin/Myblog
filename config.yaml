@@ -1,0 +1,126 @@
+baseurl: https://example.com
+languageCode: en-us
+theme: "hugo-theme-stack"
+paginate: 5
+title: DATA GANG
+
+# Change it to your Disqus shortname before using
+disqusShortname: hugo-theme-stack
+
+# GA Tracking ID
+googleAnalytics:
+
+# Theme i18n support
+# Available values: en, fr, id, ja, ko, pt-br, zh-cn, es, de
+DefaultContentLanguage: en
+
+permalinks:
+    post: /p/:slug/
+    page: /:slug/
+
+params:
+    mainSections:
+        - post
+    featuredImageField: image
+    rssFullContent: true
+    favicon: https://previews.dropbox.com/p/thumb/ABG93ACEZ3qpNbRo7pNaoCeXzqKeItePe_vshSKQ0_vOQqNEsLdOOd9n-rWwCzP_O3gpL6r81e1tBroFbF1_iIJpJW6j_jl22EGaQw4tvDC-1cNTjmpejWoznY3cdx5wMzZn7UahNH7zSwg88G0W2v3zOghDhjrbIFp2XQje5NBXcat8bzl6SkL2Ko8Q-7lafFV082kWM-BHl1pfuMu8n5-ikUIRCwDfCuRbuxDu0MQtkHQPWKcwXWqfj1ZapJhJpxYSC4NlzKr6AxTI9cIEXu8IOHrvWcpbNKeYFvuaxaiWU_DQAwPeCOv4pgabHsS7vG-nuhXzYCfE0fAhqt5b20pgSdtKmmULEWI346IpfFadPA/p.png?size=2048x1536&size_mode=3
+
+    footer:
+        since: 2021
+        customText:
+
+    dateFormat:
+        published: Jan 02, 2006
+        lastUpdated: Jan 02, 2006 15:04 MST
+
+    sidebar:
+        emoji: 🛸
+        subtitle: big data, big mafia
+        avatar:
+            local: true
+            src: img/9504_n.jpg
+
+    article:
+        math: false
+        license:
+            enabled: true
+            default: Licensed under CC BY-NC-SA 4.0
+
+    comments:
+        enabled: true
+        provider: disqus
+
+        utterances:
+            repo:
+            issueTerm: pathname
+            label:
+
+        remark42:
+            host:
+            site:
+            locale:
+
+    widgets:
+        enabled:
+            - search
+            - archives
+            - tag-cloud
+
+        archives:
+            limit: 7
+
+        tagCloud:
+            limit: 11
+
+    opengraph:
+        twitter:
+            # Your Twitter username
+            site:
+
+            # Available values: summary, summary_large_image
+            card: summary_large_image
+
+    defaultImage:
+        opengraph:
+            enabled: false
+            local: true
+            src:
+
+    colorScheme:
+        # Display toggle
+        toggle: true
+
+        # Available values: auto, light, dark
+        default: auto
+
+    imageProcessing:
+        cover:
+            enabled: true
+        content:
+            enabled: true
+
+### Custom menu
+### See https://docs.stack.jimmycai.com/configuration/custom-menu
+### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+menu:
+    main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: -100
+          pre: home
+
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+
+        - name: categories
+          weight: 200
+
+markup:
+    highlight:
+        noClasses: false
