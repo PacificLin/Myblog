@@ -8,7 +8,7 @@ title: DATA GANG BLOG
 disqusShortname: huanping
 
 # GA Tracking ID
-googleAnalytics:
+googleAnalytics: 
 
 # Theme i18n support
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, es, de
@@ -42,7 +42,7 @@ params:
 
     sidebar:
         emoji: 🛸
-        subtitle: big data, big mafia
+        subtitle: 資料學習筆記 & 生活紀錄
         avatar:
             local: true
             src: img/9504_n.jpg
