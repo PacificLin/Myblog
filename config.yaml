@@ -14,7 +14,6 @@ googleAnalytics:
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, es, de
 DefaultContentLanguage: en
 
-
 sitemap:
   changefreq: weekly
   filename: sitemap.xml
@@ -30,8 +29,8 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: https://previews.dropbox.com/p/thumb/ABG93ACEZ3qpNbRo7pNaoCeXzqKeItePe_vshSKQ0_vOQqNEsLdOOd9n-rWwCzP_O3gpL6r81e1tBroFbF1_iIJpJW6j_jl22EGaQw4tvDC-1cNTjmpejWoznY3cdx5wMzZn7UahNH7zSwg88G0W2v3zOghDhjrbIFp2XQje5NBXcat8bzl6SkL2Ko8Q-7lafFV082kWM-BHl1pfuMu8n5-ikUIRCwDfCuRbuxDu0MQtkHQPWKcwXWqfj1ZapJhJpxYSC4NlzKr6AxTI9cIEXu8IOHrvWcpbNKeYFvuaxaiWU_DQAwPeCOv4pgabHsS7vG-nuhXzYCfE0fAhqt5b20pgSdtKmmULEWI346IpfFadPA/p.png?size=2048x1536&size_mode=3
-
+    favicon: https://i.imgur.com/EsSjcKz.png
+    
     footer:
         since: 2021
         customText:
@@ -42,7 +41,7 @@ params:
 
     sidebar:
         emoji: 🛸
-        subtitle: 資料學習筆記 & 生活紀錄
+        subtitle: 而立始筆，拾筆而立
         avatar:
             local: true
             src: img/9504_n.jpg
