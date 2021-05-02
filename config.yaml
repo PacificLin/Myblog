@@ -29,7 +29,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: https://i.imgur.com/EsSjcKz.png
+    favicon: https://i.ibb.co/DQ5zVYT/favicon.png
     
     footer:
         since: 2021
