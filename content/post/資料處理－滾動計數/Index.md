@@ -10,7 +10,7 @@ tags:
 - R
 - Data Manipulating
 - Analysis
-title: 資料處理－連續計數
+title: R 語言處理開關 APP 的連續時間
 ---
 
 這次公司的 APP 有新產品，而新產品有某個功能用戶可以隨意調整功能要打開還是關閉，而後端系統會在某個月的特定時間去抓取用戶該功能是開啟還是關閉，
@@ -61,7 +61,9 @@ df <- data.frame(name = rep(name, each = 10),
 
 ```
 
-處理這個類型 table 的需求花了我一點時間，因此記錄一下做法，這個 table 最後要處理的樣態為：統計每個客戶連續開啟該功能最久的時間，簡單來說找出最多有連續幾個 1，
+處理這個類型 table 的需求花了我一點時間，因此記錄一下做法，這個需求的命題為
+
+> 統計每個客戶連續開啟該功能最久的時間，簡單來說找出最多有連續幾個 1，
 
 假設客戶可能開開關關，資料樣態如下
 
@@ -138,7 +140,7 @@ $Frank
 10 Frank         1 2020-10-01      5
 ```
 
-從上面結果就可以看的出來，遇到 0 也就是關閉功能後，連續的打開的時間段記數就會重新開始計算
+從上面結果就可以看的出來，遇到 0 也就是關閉功能後，連續的打開的時間段計數就會重新開始計算
 
 #### 步驟三
 
@@ -167,7 +169,79 @@ do.call(rbind, df_ls) %>%
 
 
 
+### ave() 函數
 
+---
+
+ave() 和 mean() 的差異再回傳的項量長度有差異，如果以 iris 的 data 舉例
+
+```R
+test <- c(1:10)
+> mean(test)
+[1] 5.5
+```
+
+```R
+> ave(test)
+ [1] 5.5 5.5 5.5 5.5 5.5 5.5 5.5 5.5 5.5 5.5
+```
+
+而且我們從 ave() 的說明文件可發現，我們還可透過 ave() 分組，然後應用其他函數做分組計算
+
+```R
+Usage
+ave(x, ..., FUN = mean)
+Arguments
+x	A numeric.
+...	Grouping variables, typically factors, all of the same length as x.
+FUN	Function to apply for each factor level combination.
+```
+
+這邊我們創建一個假資料，假如我要找出麵包店裡蛋糕占的營收比例
+
+```R
+df2 <- data.frame(revenue = c(30, 20, 23 ,17),
+           product = c("bread", "cake", "bread", "cake"),
+           shop = gl(2, 2, labels=c("shop_1", "shop_2")))
+
+> df2
+  revenue product   shop
+1      30   bread shop_1
+2      20    cake shop_1
+3      23   bread shop_2
+4      17    cake shop_2
+
+shop_revenue <- ave(df2$revenue, df2$shop, FUN = sum)
+> shop_revenue
+[1] 50 50 40 40
+
+revenue_prop <- (df2$revenue / shop_revenue)
+> revenue_prop
+[1] 0.600 0.400 0.575 0.425
+```
+
+其實這就是分組後再做聚合運算，其實滿類似 SQL 中的 window function 的，故也可以透過以下方式來達到目的
+
+```R
+df2 <- df2 %>%
+  group_by(shop) %>%
+  mutate(shop_revenue = sum(revenue)) %>%
+  ungroup() %>%
+  mutate(revenue_prop = revenue / shop_revenue)
+
+> df2
+# A tibble: 4 x 5
+  revenue product shop   shop_revenue revenue_prop
+    <dbl> <fct>   <fct>         <dbl>        <dbl>
+1      30 bread   shop_1           50        0.6  
+2      20 cake    shop_1           50        0.4  
+3      23 bread   shop_2           40        0.575
+4      17 cake    shop_2           40        0.425
+```
+
+
+
+[ave and the function in R | R-bloggers](https://www.r-bloggers.com/2013/09/ave-and-the-function-in-r/)
 
 [r - R中的ave（）函数和mean（）函数有什么区别？ - 堆栈内存溢出 (stackoom.com)](https://stackoom.com/question/3t6uV/R中的ave-函数和mean-函数有什么区别)
 
