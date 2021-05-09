@@ -15,7 +15,7 @@ title: R Apply Family【1】
 
 ## apply family
 
-資料處理的過程中，總是會遇到需要重複處理的，時常需要透過迴圈來做重複執行，但 R 裡的 apply 族室內嵌的函數，也不需要額外 package，卻可以透過 apply 族來處理 arrays, data frames, matrices, vectors 等等，apply 族會透過向量化的計算相較於迴圈能更快速的處理數據
+資料處理的過程中，總是會遇到需要重複處理的，時常需要透過迴圈來做重複執行，但 R 裡的 apply 族室內嵌的函數，也不需要額外 package，卻可以透過 apply 族來處理 arrays, data frames, matrices, vectors 等等，apply 族式包裹迴圈後的產品，所以相對於向量化的計算並不會比較快，但是代碼會簡潔很多
 
 🙂 下面是所有的 apply 族
 
