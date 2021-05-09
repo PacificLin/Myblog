@@ -4,13 +4,13 @@ categories:
 - Analysis
 - R
 date: "2021-04-20"
-description: R 語言利用 ave() & cunsum() 做滾動計數的方法
+description: R 滾動計算 APP 最大連續開關時間
 image: 
 tags:
 - R
 - Data Manipulating
 - Analysis
-title: R 語言處理開關 APP 的連續時間
+title: cumsum(), ave() with R
 ---
 
 這次公司的 APP 有新產品，而新產品有某個功能用戶可以隨意調整功能要打開還是關閉，而後端系統會在某個月的特定時間去抓取用戶該功能是開啟還是關閉，

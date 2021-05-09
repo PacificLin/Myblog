@@ -243,7 +243,7 @@ FUN: 要嵌套到每個元素的函數
 
 ...: addition arguments to FUN
 
-MoreArgs:
+MoreArgs: 通常放 NULL
 
 SIMPLIFY: **F**：返回值的型別是 list，此時與 lapply 完全相同;**T**（預設值）: 返回值的型別由計算結果定，如果函式返回值長度為 1，則 mapply 將 list 簡化為 vector；
 
@@ -310,7 +310,7 @@ max_value = function(a, b, c = 11){
  2.266667  8.195652 12.259259 
 ```
 
-若 mapply 將 SIMPLIFY = F，則會幾乎等於 Map() 函示
+若 mapply 將 SIMPLIFY = F，則會幾乎等於 Map() 函式
 
 ```R
 > mapply(weighted.mean, list1, list2, SIMPLIFY = F)
