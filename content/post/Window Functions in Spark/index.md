@@ -1,5 +1,4 @@
 ---
-
 author: Pacific2021
 categories:
 - Spark
@@ -10,6 +9,8 @@ image:
 tags:
 - Spark
 - Python
+- Pyspark
+- Sparksql
 title: Window Functions in PySpark
 ---
 
