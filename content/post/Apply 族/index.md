@@ -15,7 +15,7 @@ title: R Apply Family【1】
 
 ## apply family
 
-資料處理的過程中，總是會遇到需要重複處理的，時常需要透過迴圈來做重複執行，但 R 裡的 apply 族室內嵌的函數，也不需要額外 package，卻可以透過 apply 族來處理 arrays, data frames, matrices, vectors 等等，apply 族式包裹迴圈後的產品，所以相對於向量化的計算並不會比較快，但是代碼會簡潔很多
+資料處理的過程中，總是會遇到需要重複處理的，時常需要透過迴圈來做重複執行，但 R 裡的 apply 族是內嵌的函數，也不需要額外 package，卻可以透過 apply 族來處理 arrays, data frames, matrices, vectors 等等，apply 族是包裹迴圈後的產品，所以相對於向量化的計算並不會比較快，但是代碼會簡潔很多
 
 
 
@@ -33,6 +33,8 @@ title: R Apply Family【1】
 | rapply | 嵌套清單                         | 嵌套清單                |
 
 ## apply
+
+apply 會將 FUN 嵌套到每個 input 的元素，但要指定以行計算還是列計算
 
 > apply(X, MARGIN, FUN, ...)
 
@@ -112,9 +114,7 @@ FUN: 要嵌套到每個元素的函數
 
 lappy 會將函數套用到 list 裡的每個元素，然後以 list 的型式返回
 
-
-
-![](C:\Users\wj66x\myBlog\content\post\Apply 族\pic1.PNG)
+![lapply](pic1.PNG)
 
 
 
@@ -231,7 +231,7 @@ Error in vapply(mtcars, scale01, numeric(2)) : 值的長度必須是 2，
 
 
 
-![](C:\Users\wj66x\myBlog\content\post\Apply 族\pic2.PNG)
+![sapply&vapply](pic2.PNG)
 
 
 
