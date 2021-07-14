@@ -4,13 +4,13 @@ categories:
 - Analysis
 - R
 date: "2021-04-20"
-description: R 滾動計算 APP 最大連續開關時間
+description: 計算APP 最大連續開關時間
 image: 
 tags:
 - R
 - Data Manipulating
 - Analysis
-title: cumsum(), ave() with R
+title: Count Consecutive Days With R
 ---
 
 這次公司的 APP 有新產品，而新產品有某個功能用戶可以隨意調整功能要打開還是關閉，而後端系統會在某個月的特定時間去抓取用戶該功能是開啟還是關閉，

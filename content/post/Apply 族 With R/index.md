@@ -50,7 +50,7 @@ FUN: 要嵌套到每個元素的函數
 
 #### 使用範例
 
-* 創建一個 data frame
+創建一個 data frame
 
 ```R
 df <- data.frame(x = 1:4, y = 5:8, z = 10:13)
@@ -62,7 +62,7 @@ df <- data.frame(x = 1:4, y = 5:8, z = 10:13)
 4 4 8 13
 ```
 
-* 透過 apply 對每列求平均
+透過 apply 對每列求平均
 
 ```R
 > apply(df, 2, mean)
@@ -70,7 +70,7 @@ df <- data.frame(x = 1:4, y = 5:8, z = 10:13)
  2.5  6.5 11.5 
 ```
 
-* 也可以自己寫 FUN 內嵌在裡面，當然也可以選定要計算的行或列
+也可以自己寫 FUN 內嵌在裡面，當然也可以選定要計算的行或列
 
 ```R
 > apply(df[ ,c(1, 3)], 2, function(x) x^2)
@@ -81,7 +81,7 @@ df <- data.frame(x = 1:4, y = 5:8, z = 10:13)
 [4,] 16 169
 ```
 
-* 如果 FUN 裡有需要設定的 arg 也可以
+如果 FUN 裡有需要設定的 arg 也可以
 
 ```R
 fun <- function(x, character = FALSE) {
@@ -160,6 +160,41 @@ mtcars_scale <- cbind(cartype = rownames(mtcars), mtcars_scale)
 4    Hornet 4 Drive 0.4680851 0.5 0.4662010 0.2049470 0.1474654 0.4351828 0.5880952  1  0  0.0 0.0000000
 5 Hornet Sportabout 0.3531915 1.0 0.7206286 0.4346290 0.1797235 0.4927129 0.3000000  0  0  0.0 0.1428571
 6           Valiant 0.3276596 0.5 0.3838863 0.1872792 0.0000000 0.4978266 0.6809524  1  0  0.0 0.0000000
+```
+
+或是可以同時對兩個同樣 column 的 data frame 同時 manapulate，我先將 mtcars 切成兩個 dataframe，然後同時對 carb + 10
+
+```R
+mtcars1 <- mtcars[1:5, ]
+mtcars2 <- mtcars[6:11, ]
+
+plus_fun <- function(x){
+  x %>%
+  mutate(carb_plus = .$carb + 10)
+}
+
+list_car <- lapply(list(mtcars1, mtcars2), plus_fun)
+
+for(i in 1:length(list_car)){
+  assign(paste0('mtcars', i), list_car[[i]])
+}
+ 
+> mtcars1
+                   mpg cyl disp  hp drat    wt  qsec vs am gear carb carb_plus
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4        14
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4        14
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1        11
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1        11
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2        12
+
+> mtcars2
+            mpg cyl  disp  hp drat   wt  qsec vs am gear carb carb_plus
+Valiant    18.1   6 225.0 105 2.76 3.46 20.22  1  0    3    1        11
+Duster 360 14.3   8 360.0 245 3.21 3.57 15.84  0  0    3    4        14
+Merc 240D  24.4   4 146.7  62 3.69 3.19 20.00  1  0    4    2        12
+Merc 230   22.8   4 140.8  95 3.92 3.15 22.90  1  0    4    2        12
+Merc 280   19.2   6 167.6 123 3.92 3.44 18.30  1  0    4    4        14
+Merc 280C  17.8   6 167.6 123 3.92 3.44 18.90  1  0    4    4        14
 ```
 
 ## sapply
