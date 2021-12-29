@@ -114,7 +114,9 @@ FUN: 要嵌套到每個元素的函數
 
 lappy 會將函數套用到 list 裡的每個元素，然後以 list 的型式返回
 
-![lapply](pic1.PNG)
+
+
+![pic1](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/pic1.PNG)
 
 
 
@@ -262,11 +264,7 @@ Error in vapply(mtcars, scale01, numeric(2)) : 值的長度必須是 2，
 
 
 
-
-
-
-
-![sapply&vapply](pic2.PNG)
+![pic2](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/pic2.PNG)
 
 
 
