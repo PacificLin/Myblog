@@ -50,11 +50,11 @@ title: Typora + PicGo + Github 圖床設置
 
 > 點擊右上角頭像 > setting > Developer setting
 
-![image-20211229215114110](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/image-20211229215114110.png)
+![Screenshot 2022-01-04 215646](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/2021-12-03/Screenshot%202022-01-04%20215646.jpg)
 
 > Developer setting > Personal access tokens > Generate new token
 
-![image-20211229215033960](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/image-20211229215033960.png)
+![Screenshot 2022-01-04 215737](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/2021-12-03/Screenshot%202022-01-04%20215737.jpg)
 
 進去後把 `repo` 打勾，Note 可以填提醒自己這個 token 是幹嘛用的 ，最後按 `Generate token` 就會生成一串 token，但記得複製下來
 
@@ -92,7 +92,7 @@ picgo set uploader
 
 第一步可以選圖床，我就選 github，網路上應該有其他圖床的配置教學
 
-![image-20211229221754777](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/image-20211229221754777.png)
+![Screenshot 2022-01-04 215815](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/2021-12-03/Screenshot%202022-01-04%20215815.jpg)
 
 然後下面的參數設定如下
 
@@ -120,12 +120,8 @@ picgo set uploader
 
 `Command`：picgo upload
 
-![image-20211229233638882](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/image-20211229233638882.png)
+![Screenshot 2022-01-04 215846](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/2021-12-03/Screenshot%202022-01-04%20215846.jpg)
 
 然後點選 test Uploader，如果成功就會出現以下訊息，好 la 大功告成
 
-![image-20211229234122023](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/image-20211229234122023.png)
-
-
-
-###  
+![Screenshot 2022-01-04 215923](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/2021-12-03/Screenshot%202022-01-04%20215923.jpg)
