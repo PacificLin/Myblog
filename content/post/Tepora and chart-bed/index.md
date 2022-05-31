@@ -102,7 +102,7 @@ picgo set uploader
 
 **token：** `剛剛步驟一申請的 token`                                                                                                                                                                                                                                       
 
- **path：** blog/  `上傳在你的 Github repo 根目錄的資料夾，可自己按造需求命名，沒寫就會上傳到根目錄`                                                                                                                                                                                                                                                                          
+**path：** blog/  `上傳在你的 Github repo 根目錄的資料夾，可自己按造需求命名，沒寫就會上傳到根目錄`                                                                                                                                                                                                                                                                          
 
 **customUrl:** https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main  `這是 CDN 可以增加圖片 render 的速度，可不填`
 
