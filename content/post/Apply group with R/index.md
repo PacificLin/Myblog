@@ -116,7 +116,7 @@ lappy 會將函數套用到 list 裡的每個元素，然後以 list 的型式�
 
 
 
-![pic1](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/pic1.PNG)
+![Screenshot 2022-01-04 220600](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/2021-05-05/Screenshot%202022-01-04%20220600.jpg)
 
 
 
@@ -264,7 +264,7 @@ Error in vapply(mtcars, scale01, numeric(2)) : 值的長度必須是 2，
 
 
 
-![pic2](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/pic2.PNG)
+![Screenshot 2022-01-04 220625](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blog/2021-05-05/Screenshot%202022-01-04%20220625.jpg)
 
 
 

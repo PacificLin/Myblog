@@ -69,13 +69,13 @@ title: Typora + PicGo + Github 圖床設置
 * 因為安裝 Picgo 需要安裝 nodjs，這邊我是用 scoop 來安裝
 
 ```
-sccop install nodejs
+scoop install nodejs
 ```
 
 * 然後呢再安裝 npm，npm 為 JS 的套件管理工具
 
 ```
-sccop install npm
+scoop install npm
 ```
 
 * 最後再用 npm 安裝 Picgo 
@@ -112,7 +112,7 @@ picgo set uploader
 
 ### 步驟三：設定 Typora
 
-> Typora > File > Preferances
+> Typora > File > Preferences
 
 請將設定如下，因為我們是透過 terminal 來設定，所以選擇這個方法。
 

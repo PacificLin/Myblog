@@ -192,6 +192,79 @@ df2 = df.withColumn("max_value", Window.max("value").over(window_spec)) \
 | Julia | stock  | 100000 | 0          |
 | Julia | fund   | 5000   | 95000      |
 
+### ROW FRAME 時間窗口
+
+- `partitionBy`：分組，所有的通過 rowsBetween 和 rangeBetween 切割出來的幀都是在分組的基礎上的
+
+- `orderBy`：排序，這個比較好理解，就是按照那個字段排序
+
+- `rowsBetween/rangeBetween` ：rowBetween 是當前行的前或者後幾行，rangeBetween 是針對 orderby 的值計算出來的範圍再和 orderby 比較來得到時間幀
+
+  * rowsBetween 不關心確切的值。它只關心行的順序，並且在計算幀時採用固定數量的前後行
+  * rangeBetween 計算框架時考慮值
+
+  rowsBetween 語法為 rowsBetween(x, y)，其中 x, y 可以是數字，-n 表示向前數 n 行，n表示向後數 n 行
+
+而 rowsBetween/rangeBetween 也可使用以下方式來表示
+
+- `Window.unboundedPreceding` 表示當前行的無限行
+- `Window.currentRow` 表示當前行
+- `Window.unboundedFollowing` 表示當前行之後的無限行
+
+在一次用 `temp` 的 table 做舉例，但數字稍微做調整如下
+
+| name  | assets | value  |
+| ----- | ------ | ------ |
+| Jason | stock  | 6500   |
+| Jason | fund   | 10000  |
+| Jason | bond   | 15000  |
+| Mike  | fund   | 12000  |
+| Mike  | bond   | 350000 |
+| Mike  | stock  | 100000 |
+| Julia | gold   | 100000 |
+| Julia | fund   | 5000   |
+| Julia | stock  | 100000 |
+
+`rowsBetween` 中的幀不依賴於 orderBy 子句。所以會依照分組後做獨立計算
+
+```python
+window_spec = Window.partitionBy('assets').orderBy('value').rowsBetween(Window.unboundedPreceding, Window.currentRow)
+df.withColumn('RowsBetween', F.sum(df.value).over(window_spec)).show()
+```
+
+| name  | assets | value  | RowsBetween |
+| ----- | ------ | ------ | ----------- |
+| Jason | stock  | 6500   | 6500        |
+| Julia | stock  | 100000 | `106500`    |
+| Mike  | stock  | 100000 | `206500`    |
+| Julia | fund   | 5000   | 5000        |
+| Jason | fund   | 10000  | 15000       |
+| Mike  | fund   | 12000  | 27000       |
+| Jason | bond   | 15000  | 15000       |
+| Mike  | bond   | 350000 | 365000      |
+| Julia | gold   | 10000  | 10000       |
+
+改用 `rangeBetween` ，可以發現產出的值會取決於 orderBy 子句，如果值相同，會計算所有相同值得所有行，因此相同的 value 在同一行會一次做計算
+
+```
+window_spec = Window.partitionBy('assets').orderBy('value').rangeBetween(Window.unboundedPreceding, Window.currentRow)
+df.withColumn('RowsBetween', F.sum(df.value).over(window_spec)).show()
+```
+
+| name  | assets | value  | RowsBetween |
+| ----- | ------ | ------ | ----------- |
+| Jason | stock  | 6500   | 6500        |
+| Julia | stock  | 100000 | `206500`    |
+| Mike  | stock  | 100000 | `206500`    |
+| Julia | fund   | 5000   | 5000        |
+| Jason | fund   | 10000  | 15000       |
+| Mike  | fund   | 12000  | 27000       |
+| Jason | bond   | 15000  | 15000       |
+| Mike  | bond   | 350000 | 365000      |
+| Julia | gold   | 10000  | 10000       |
+
+
+
 ### 參考來源
 
 [Introducing Window Functions in Spark SQL - The Databricks Blog](https://databricks.com/blog/2015/07/15/introducing-window-functions-in-spark-sql.html)
