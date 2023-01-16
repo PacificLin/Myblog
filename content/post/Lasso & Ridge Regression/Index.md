@@ -82,7 +82,7 @@ b 和 w 為模型最終學到的參數（parameter）和係數（coefficient）�
 
 ## 懲罰值
 
-如上述特徵是用 coefficient 來估計其對於 $$f$$ 的變化或權重，因此若能限制或歸 0 部分的特徵值係數，則能減少模型的光滑度（flexibility）來避免高 variance。因此透過正規化 `regulariztion` 降低模型的複雜度，Lasso 和 Ridge 都是基於線性回歸模型防止過擬合的工具，只要應用Lasso 或者 Ridge，`都需要對特徵進行標準化（standardized）`。
+如上述特徵是用 coefficient 來估計其對於方程式的變化或權重，因此若能限制或歸 0 部分的特徵值係數，則能減少模型的光滑度（flexibility）來避免高 variance。因此透過正規化 `regulariztion` 降低模型的複雜度，Lasso 和 Ridge 都是基於線性回歸模型防止過擬合的工具，只要應用 Lasso 或者 Ridge，`都需要對特徵進行標準化（standardized）`。
 
 而正規化就是在原有的 RSS 中加入懲罰值 P
 
