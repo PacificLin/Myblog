@@ -6,6 +6,7 @@ categories:
 date: "2022-12-16"
 description: 
 image: 
+math: true
 tags:
 - Machine Learning
 - Python
