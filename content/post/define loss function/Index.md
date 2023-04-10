@@ -83,6 +83,8 @@ print("rms error is: {}".format(str(mse_val)))
 
 我們先透過自訂義 loss function 來看各種不同樣態的  loss function 的圖形呈現
 
+
+
 這邊 `a`代表
 $$
 {\sum_{i=1}^n(y_i - \hat{y})}
@@ -98,13 +100,6 @@ $$
 L(a) = | a |
 $$
 
-Huber 
-$$
-L_\delta(a) = \begin{cases}
-    \dfrac{1}{2}a^2       \quad \text{for  } | a |\leq\delta\\
-    \delta\cdot(| a |-\dfrac{1}{2}\delta) \quad \text{， otherwise}
-  \end{cases}
-$$
 
 Fair
 $$
@@ -115,6 +110,17 @@ Pseudo-Huber
 $$
 L_\delta(a) = \delta(\sqrt{ 1 + (\frac{a}{\delta})^2 }-1)
 $$
+Huber
+$$
+L_\delta(a) = \begin{cases}
+    \dfrac{1}{2}a^2       \quad \text{for  } | a |\leq\delta\\
+    \delta\cdot(| a |-\dfrac{1}{2}\delta) \quad \text{， otherwise}
+  \end{cases}
+$$
+
+
+
+
 然後用 python 來實現各 loss function 的 圖形分布
 
 ```python
