@@ -17,12 +17,6 @@ title: XGBoost 自訂義 Loss Function
 
 
 
-# XGBoost 自訂義 Loss Function
-
----
-
-
-
 ## 前言 
 
 機器學習中都會有一個目標函數（object function）來計算尋找出最佳化模型或優化模型，換句話說也就是該模型希望達到的目的，比如 K-means 群集分析就是希望`最小化群內的資料和群心的誤差平方和`，而其中 loss function 可以說和目標函數是高度相關，但又不完全相同。

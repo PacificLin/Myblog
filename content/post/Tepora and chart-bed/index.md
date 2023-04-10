@@ -96,7 +96,7 @@ picgo set uploader
 
 然後下面的參數設定如下
 
-**repo：**PacificLin/chart-bed `Github 用戶名/repo`
+**repo：** PacificLin/chart-bed `Github 用戶名/repo`
 
 **branch：** main                                                                                                                                                                                                                                                                          
 
