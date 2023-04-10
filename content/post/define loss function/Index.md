@@ -107,7 +107,7 @@ L_\delta(a) = \begin{cases}
 $$
 Pseudo-Huber 
 $$
-L_\delta(a) = \delta(\sqrt{1 +(\frac{a}{\delta})^2}-1)
+L(a) = (\sqrt{1 +(\frac{a}{j})^2}-1)
 $$
 
 
@@ -165,9 +165,7 @@ ax.legend();
 plt.show()
 ```
 
-
-
-<img src="https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blogmyplot.png" alt="myplot"  /> 
+![myplo33ef34t](https://cdn.jsdelivr.net/gh/PacificLin/chart-bed@main/blogmyplo33ef34t.png)
 
 
 
