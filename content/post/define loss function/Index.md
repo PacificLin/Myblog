@@ -98,7 +98,6 @@ $$
 L(a) = | a |
 $$
 
-
 Huber 
 $$
 L_\delta(a) = \begin{cases}
