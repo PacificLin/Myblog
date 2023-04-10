@@ -113,9 +113,9 @@ $$
 Huber
 $$
 L_\delta(a) = \begin{cases}
-    \dfrac{1}{2}a^2       \quad \text{for  } | a |\leq\delta\\
-    \delta\cdot(| a |-\dfrac{1}{2}\delta) \quad \text{， otherwise}
-  \end{cases}
+    \dfrac{1}{2}a^2 & \quad \text{for} \  | a |\leq\delta\\
+    \delta\cdot(| a |-\dfrac{1}{2}\delta) & \quad \text{otherwise}
+  \end{cases}
 $$
 
 
