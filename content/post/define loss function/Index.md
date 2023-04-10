@@ -105,18 +105,16 @@ L_\delta(a) = \begin{cases}
     \delta\cdot(| a |-\dfrac{1}{2}\delta) \quad \text{， otherwise}
   \end{cases}
 $$
-Pseudo-Huber 
-$$
-L(a) = (\sqrt{1 +(\frac{a}{j})^2}-1)
-$$
-
 
 Fair
 $$
 L_c(a) = c^2(\frac{| a |}{c} - \ln(1+\frac{| a |}{c}))
 $$
 
-
+Pseudo-Huber 
+$$
+L_\delta(a) = \delta(\sqrt{ 1 + (\frac{a}{\delta})^2 }-1)
+$$
 然後用 python 來實現各 loss function 的 圖形分布
 
 ```python
