@@ -373,9 +373,7 @@ logloss: 0.0898
 
 ## 試著使用 chatGPT 寫程式
 
-因為在理解 stacking 的過程中，網路上資料不多，Kaggle 上的教學有些 code 真的太複雜看不太懂，花滿多時間才真的了解其架構，後來有使用 chatGPT 來做初一些詢問，在交談和修正的過程，也透過 chatGPT 完成一段算是完整的 stacking flow，
-
-我們可以看一下，透過 chatGPT 寫出來的程式和我們原本的有啥差異。這邊同樣都是用乳癌資料來建立 stacking flow。
+因為在理解 stacking 的過程中，網路上資料不多，Kaggle 上的教學有些 code 真的太複雜看不太懂，花滿多時間才真的了解其架構，後來有使用 chatGPT 來做一些詢問，在交談和修正的過程，也透過 chatGPT 完成一段算是完整的 stacking flow code，我們可以看一下，透過 chatGPT 寫出來的程式和我們原本的有啥差異。這邊同樣都是用乳癌資料來建立 stacking flow。
 
 ```python
 from sklearn.datasets import load_breast_cancer
@@ -398,7 +396,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 
 
-這邊比較簡單的建立 base model 和 meta model，甚至沒有啥做超參數設定，不過如過進一步細緻的去要求 chatGPT 其實他會完成的更完整。
+這邊比較簡單的建立 base model 和 meta model，甚至沒有啥做超參數設定，不過如過進一步細緻的去要求 chatGPT 其實他會完成的更完整。:ear_of_rice:
 
 
 
@@ -437,7 +435,7 @@ for i, model in enumerate(base_models):
         base_model_test_pred[:, i] += model.predict_proba(X_test)[:, 1] / n_folds
 ```
 
-訓練 meta model 並做出預測
+訓練 meta model 並做出預測，這邊看的出來其再對 meta model 做訓練時沒有用 k-fold，而是直接去 fit 整個 new data feautures，個人覺得差異性不大，因為針對 new data features 都是在未知標籤下去做預測，如果需要再疊一層則才一定需要做 k-fold。
 
 ```python
 # 使用基本模型的預測結果訓練 meta-model
@@ -449,7 +447,7 @@ logloss = log_loss(y_test, pred)
 print('logloss: {:.4f}'.format(logloss))
 ```
 
-效果也是滿不錯的
+效果也是滿不錯的 :smile_cat:
 
 ```python
 logloss: 0.0859
