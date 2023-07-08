@@ -45,7 +45,7 @@ title: Pipeline 和機器學習架構（一）：為何要用 Pipeline？
 
 
 
-那這兩種 scenario  分別以程式碼來做舉例，以乳癌資料做示範
+那這兩種 scenario  分別以程式碼來做舉例，以乳癌資料做示範為何會將 testing data 的資料洩漏出來。
 
 ```python
 from sklearn.datasets import load_breast_cancer
@@ -86,11 +86,11 @@ scaler.fit_transform(X)[:3, :3]
 
 因為 `MinMaxScaler()`這個 transformer 是依據整個位分割的數據架構來重新對數據做轉換，因此  testing data 的資料就洩漏給 training data 了，那做完這個轉換後，就很容易 over fitting
 
-> testing data 要想成就只能用一次，不能一據 testing data 的好壞來調整模型，那這樣就會過擬合，應該在 training data 中切分 validation data 來調整資料
+> testing data 要想成就只能用一次，不能依據 testing data 的好壞來調整模型，那這樣就會過擬合，應該在 training data 中切分 validation data 來調整資料
 
 但這時候就會遇到一個問題，如果先切好 train 和 test data 但做一些 column 的轉換時，不就要 train 和 test 各做一次。
 
-對! 就是要重複做，但用 pipeline 就不用喔 ~
+對! 就是要重複做，但用 pipeline 就不用喔 😎
 
 
 
@@ -104,7 +104,7 @@ test_data['worst_smoothness'] = test_data['worst_smoothness'].apply(lambda x: x*
 
 
 
-如上就會變成 train 和 teat 各做一次，但有時候懶，就會先做完這些轉換後再去切割 data，其實就會搞得很混亂，程式碼也會比較不好讀。
+如上就會變成 training data 和 teating data 各做一次，但有時候懶，就會先做完這些轉換後再去切割 data，其實就會搞得很混亂，程式碼也會比較不好讀。
 
 接著就容易犯第二個錯，分別 fit 擬合 training data 和 testing data 並分開 transform
 
@@ -119,7 +119,7 @@ data = np.array([100, 200, 300, 10, 25, 50]).reshape(-1, 1)  # 原始數據
 
 
 # 分割數據
-train = data[:3]  # 第一部分數據訓練集
+train = data[:3]  # 第一部分數據假設為訓練集
 test = data[3:]  # 第二部分數據假設為測試集
 
 # 創建MinMaxScaler對象
@@ -131,8 +131,8 @@ scaler1.fit(train)
 scaler2.fit(test)
 
 # 對新數據進行transform
-transformed_by_train = scaler1.transform(test)
-transformed_by_test = scaler2.transform(test)
+transformed_by_train = scaler1.transform(test) # 以 training data 做 transform
+transformed_by_test = scaler2.transform(test) # 以 testing data 做 transform
 
 print("Transformed data fit by train:\n{}".format(transformed_by_train))
 print("Transformed data fit by test:\n{}".format(transformed_by_test))
@@ -144,7 +144,7 @@ print("Transformed data fit by test:\n{}".format(transformed_by_test))
 
 `fit with training data` ：竟然出現了負值，MinMaxScaler()  不是會轉換在 0 和 1 之間嗎? 
 
-`fit with test data` ：看起來在 0-1 之間
+`fit with test data` ：看起來在 0-1 之間好像比較正常
 
 
 
@@ -161,7 +161,7 @@ Transformed data fit by test:
 
 
 
-看起來是對的，但實際上應該用 `fit with training data` ，因為模型適用 training data 去訓練出來的，因此就應該用 training data 的資料架構去轉換，因此如果 testing data 的最大值或最小值超出 training data ，就有可能出現負數。
+`fit with test data`  看起來是對的，但實際上應該用 `fit with training data` ，因為模型是用 training data 的資料結構去訓練出來的，因此就應該用 training data 的資料架構去轉換，因此如果 testing data 的最大值或最小值超出 training data ，就有可能出現負數。
 
 故會需要`依據資料架構做 transform` 的正確的做法就是 🫠
 
@@ -172,7 +172,7 @@ Transformed data fit by test:
 
 
 
-感覺很容易搞混，沒錯多錯幾次就知道了，都還沒分 validation set 勒，所以為了避免不知道何時切割資料和不知道何時需要轉換資料，pipeline 就可以來解決這個痛點啦。
+感覺很容易搞混，沒錯多錯幾次就知道了，都還沒分 validation set ，所以為了避免不知道何時切割資料和不知道何時需要轉換資料，pipeline 就可以來解決這個痛點啦。
 
 
 

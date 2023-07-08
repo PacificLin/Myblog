@@ -246,7 +246,7 @@ df.withColumn('RowsBetween', F.sum(df.value).over(window_spec)).show()
 
 改用 `rangeBetween` ，可以發現產出的值會取決於 orderBy 子句，如果值相同，會計算所有相同值得所有行，因此相同的 value 在同一行會一次做計算
 
-```
+```python
 window_spec = Window.partitionBy('assets').orderBy('value').rangeBetween(Window.unboundedPreceding, Window.currentRow)
 df.withColumn('RowsBetween', F.sum(df.value).over(window_spec)).show()
 ```
