@@ -97,7 +97,7 @@ scaler.fit_transform(X)[:3, :3]
 ```python
 train_data, test_data = train_test_split(df, test_size = 0.2, random_state = 22)
 
-train_data['worst_smoothness'] = train_data['worst_smoothness'].apply(lambda x: x**2 if x > 10 else x)
+train_data['worst_smoothness'] = train_data['worst_smoothness'].apply(lambda x: x**2 if x > 10 else (x - 3 if x < 5 else x))
 
 test_data['worst_smoothness'] = test_data['worst_smoothness'].apply(lambda x: x**2 if x > 10 else (x - 3 if x < 5 else x))
 ```
@@ -190,4 +190,8 @@ transformer  轉換器是一種實現`transform`方法的估算器。以某種�
 
 2. estimator 估計器
 
-在 sklearn 裡大致上可以認為顧忌器就是某種預測器。其透過保留參數後和儲存學習後的資料物件，用於預測於新的值，，並且應該提供`set_params`和`get_params`，這部分要參考 `Baseestimator`。程式上`estimator 通過使用輸入數據 fit(X)，預測新的數據 predict.(y)`
+在 sklearn 裡大致上可以認為估計器就是某種預測器。其透過保留參數後和儲存學習後的資料物件，用於預測於新的值，，並且應該提供`set_params`和`get_params`，這部分要參考 `Baseestimator`。程式上`estimator 通過使用輸入數據 fit(X)，預測新的數據 predict.(y)`
+
+這邊可以參考以下 sklearn 官方文檔的解釋：[Developing scikit-learn estimators](https://scikit-learn.org/stable/developers/develop.html)
+
+其實 estimators 都可以自訂義 user define，因為他都是繼承 inherit 了 `sklearn.base.BaseEstimator`。這比較複雜一點，之後再說啦。
