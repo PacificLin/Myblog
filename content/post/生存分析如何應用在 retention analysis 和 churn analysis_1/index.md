@@ -4,7 +4,7 @@ categories:
 - Analysis
 - Python
 - Statistic
-date: "2021-07-02"
+date: "2023-07-02"
 description: 
 image: 
 tags:
